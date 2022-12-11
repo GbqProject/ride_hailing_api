@@ -1,0 +1,18 @@
+services:
+  database: 
+    build: 
+      #context: database
+      dockerfile: ./db/db.Dockerfile
+    volumes:
+        - ./db/InitialDB.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+  backend:
+    depends_on:
+      - database
+    build: 
+      dockerfile: './backend/backend.Dockerfile'
+    environment:
+      - db_host=database
+    ports:
+      - 3000:3000
