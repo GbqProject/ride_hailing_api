@@ -4,12 +4,13 @@ import { Repository } from 'typeorm';
 import { Ride } from './ride.entity';
 import { getLocationFromJson } from '../Common/functions/parser_utilities';
 import { getDistanceBetween } from '../Common/functions/calculations';
-import { location } from 'src/Common/interfaces/location.interface';
+import { location } from '../Common/interfaces/location.interface';
 import * as moment from 'moment';
 import {
   url,
   api_transaction,
   bearer_priv_token,
+  reference_name,
 } from '../Common/Integrations/payment_provider';
 import { HttpService } from '@nestjs/axios/dist';
 import { Driver } from '../Drivers/driver.entity';
@@ -81,7 +82,7 @@ export class RideService {
       payment_method: {
         installments: 2, // Number of installment if the payment source represents a card otherwise ignore the payment_method field altogether.
       },
-      reference: 'reference_dev1_' + ride.ride_id.toString(), // Unique payment reference
+      reference: reference_name + ride.ride_id.toString(), // Unique payment reference
       payment_source_id: ride.rider.payment_source, // Payment source ID
     };
     const config = {

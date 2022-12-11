@@ -1,0 +1,785 @@
+{
+	"info": {
+		"_postman_id": "8f19a6d9-d806-46f0-a30a-91fd31bc5528",
+		"name": "Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20772005"
+	},
+	"item": [
+		{
+			"name": "sandbox-token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": \"4242424242424242\",\r\n  \"exp_month\": \"06\",\r\n  \"exp_year\": \"29\",\r\n  \"cvc\": \"123\",\r\n  \"card_holder\": \"Pedro Pérez\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sandbox.wompi.co/v1/tokens/cards",
+					"protocol": "https",
+					"host": [
+						"sandbox",
+						"wompi",
+						"co"
+					],
+					"path": [
+						"v1",
+						"tokens",
+						"cards"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "sandbox-token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"number\": \"4242424242424242\",\r\n  \"exp_month\": \"06\",\r\n  \"exp_year\": \"29\",\r\n  \"cvc\": \"123\",\r\n  \"card_holder\": \"Pedro Pérez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sandbox.wompi.co/v1/tokens/cards",
+							"protocol": "https",
+							"host": [
+								"sandbox",
+								"wompi",
+								"co"
+							],
+							"path": [
+								"v1",
+								"tokens",
+								"cards"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "374"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Dec 2022 14:46:00 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "864a5998-d1f3-4d8e-aa72-a7359bea4d21"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "c1PKMEtjoAMFT5A="
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-6391f8a7-50b614bb1f0f40325445534f;Sampled=1"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 429fb4e05d6db25afd75d7eb9f5fa85c.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "MIA3-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "H3zXBT5JyENKciFTt_wEpOrLVTkxgJZHAoxKjb15rNcE6hRIHkbOeA=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"CREATED\",\n    \"data\": {\n        \"id\": \"tok_test_30859_73F62C051Baff215f8716e1b2Ce069f1\",\n        \"created_at\": \"2022-12-08T14:46:00.273+00:00\",\n        \"brand\": \"VISA\",\n        \"name\": \"VISA-4242\",\n        \"last_four\": \"4242\",\n        \"bin\": \"424242\",\n        \"exp_year\": \"29\",\n        \"exp_month\": \"06\",\n        \"card_holder\": \"Pedro Pérez\",\n        \"created_with_cvc\": true,\n        \"expires_at\": \"2023-06-06T14:45:59.000Z\",\n        \"validity_ends_at\": \"2022-12-10T14:46:00.273+00:00\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "sandbox-payment-source",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "prv_test_UhzN4B1L4UfiOkT4aXBDlYn7FDm6t4t5",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"CARD\",\r\n  \"token\": \"tok_test_30859_0102A8B9C0244B812592c7d9cd0B6DCa\",\r\n  \"customer_email\": \"john_smith@example.com\",\r\n  \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE2NzA2MDA3NTgtNjIwNzIiLCJleHAiOjE2NzA2MDQzNTh9.WmN8Qvt8pJPiqri1XN71d1Vfp2e0N2LIWAH2jUDb3ZM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sandbox-wompi}}/payment_sources",
+					"host": [
+						"{{sandbox-wompi}}"
+					],
+					"path": [
+						"payment_sources"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "sandbox-payment-source",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"CARD\",\r\n  \"token\": \"tok_test_30859_73F62C051Baff215f8716e1b2Ce069f1\",\r\n  \"customer_email\": \"john_smith@example.com\",\r\n  \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE2NzA1MTExNjktMzgwOTUiLCJleHAiOjE2NzA1MTQ3Njl9.LEcEmfkByqOL3Hv1ym98OHET6u7IGgPan25IOcJnDdg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{sandbox-wompi}}/payment_sources",
+							"host": [
+								"{{sandbox-wompi}}"
+							],
+							"path": [
+								"payment_sources"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Dec 2022 14:57:05 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "62d380fb-2374-458e-9ac8-4db01782a638"
+						},
+						{
+							"key": "x-amzn-Remapped-Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "x-amzn-Remapped-Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur, 1.1 80677c288b4024a45c671874b4fa625a.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "c1QxcH6joAMFqzw="
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-amzn-Remapped-Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "x-amzn-Remapped-Date",
+							"value": "Thu, 08 Dec 2022 14:57:05 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "MIA3-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "_wFAoi_CgkgpiCi1Hykf_KtD-mII6aNjGRR2K5HbPBCkMdUG1LVA0A=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 45102,\n        \"public_data\": {\n            \"bin\": \"424242\",\n            \"last_four\": \"4242\",\n            \"exp_month\": \"06\",\n            \"exp_year\": \"29\",\n            \"card_holder\": \"Pedro Pérez\",\n            \"validity_ends_at\": \"2025-06-08T14:57:04.940+00:00\",\n            \"type\": \"CARD\"\n        },\n        \"token\": \"tok_test_30859_73F62C051Baff215f8716e1b2Ce069f1\",\n        \"type\": \"CARD\",\n        \"status\": \"AVAILABLE\",\n        \"customer_email\": \"john_smith@example.com\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "sandbox-transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "prv_test_UhzN4B1L4UfiOkT4aXBDlYn7FDm6t4t5",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount_in_cents\": 500000, // Amount in cents\r\n  \"currency\": \"COP\", // Currency\r\n  \"customer_email\": \"example@gmail.com\", // User email\r\n  \"payment_method\": {\r\n    \"installments\": 2 // Number of installment if the payment source represents a card otherwise ignore the payment_method field altogether.\r\n  },\r\n  \"reference\": \"referencia_dev1\", // Unique payment reference\r\n  \"payment_source_id\": 45181 // Payment source ID\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sandbox-wompi}}/transactions",
+					"host": [
+						"{{sandbox-wompi}}"
+					],
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "sandbox-payment-source",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"CARD\",\r\n  \"token\": \"tok_test_30859_73F62C051Baff215f8716e1b2Ce069f1\",\r\n  \"customer_email\": \"john_smith@example.com\",\r\n  \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE2NzA1MTExNjktMzgwOTUiLCJleHAiOjE2NzA1MTQ3Njl9.LEcEmfkByqOL3Hv1ym98OHET6u7IGgPan25IOcJnDdg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{sandbox-wompi}}/payment_sources",
+							"host": [
+								"{{sandbox-wompi}}"
+							],
+							"path": [
+								"payment_sources"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Dec 2022 14:57:05 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "62d380fb-2374-458e-9ac8-4db01782a638"
+						},
+						{
+							"key": "x-amzn-Remapped-Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "x-amzn-Remapped-Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur, 1.1 80677c288b4024a45c671874b4fa625a.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "c1QxcH6joAMFqzw="
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-amzn-Remapped-Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "x-amzn-Remapped-Date",
+							"value": "Thu, 08 Dec 2022 14:57:05 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "MIA3-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "_wFAoi_CgkgpiCi1Hykf_KtD-mII6aNjGRR2K5HbPBCkMdUG1LVA0A=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 45102,\n        \"public_data\": {\n            \"bin\": \"424242\",\n            \"last_four\": \"4242\",\n            \"exp_month\": \"06\",\n            \"exp_year\": \"29\",\n            \"card_holder\": \"Pedro Pérez\",\n            \"validity_ends_at\": \"2025-06-08T14:57:04.940+00:00\",\n            \"type\": \"CARD\"\n        },\n        \"token\": \"tok_test_30859_73F62C051Baff215f8716e1b2Ce069f1\",\n        \"type\": \"CARD\",\n        \"status\": \"AVAILABLE\",\n        \"customer_email\": \"john_smith@example.com\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "presigned acceptance token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{sandbox-wompi}}/merchants/pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA",
+					"host": [
+						"{{sandbox-wompi}}"
+					],
+					"path": [
+						"merchants",
+						"pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "presigned acceptance token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{sandbox-wompi}}/merchants/pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA",
+							"host": [
+								"{{sandbox-wompi}}"
+							],
+							"path": [
+								"merchants",
+								"pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1509"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Dec 2022 14:52:49 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "ecc6f4d5-df36-433a-bea2-ecf5034a4b94"
+						},
+						{
+							"key": "x-amzn-Remapped-Content-Length",
+							"value": "1509"
+						},
+						{
+							"key": "x-amzn-Remapped-Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur, 1.1 80677c288b4024a45c671874b4fa625a.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "c1QKUE41IAMFjhg="
+						},
+						{
+							"key": "x-amzn-Remapped-Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "x-amzn-Remapped-Date",
+							"value": "Thu, 08 Dec 2022 14:52:49 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "MIA3-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "_YOtemD9uCrJJkEszOGhyMh5Yq7upbYrOX05wqmmH8yPeOLP2EOh_Q=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 30859,\n        \"name\": \"TestBussines\",\n        \"email\": \"fabiansayidquinterojaimes@gmail.com\",\n        \"contact_name\": \"Fabian Sayid Quintero Jaimes\",\n        \"phone_number\": \"+573112231675\",\n        \"active\": true,\n        \"logo_url\": null,\n        \"legal_name\": \"Fabian Sayid\",\n        \"legal_id_type\": \"CC\",\n        \"legal_id\": \"1007618533\",\n        \"public_key\": \"pub_test_YSlwwI1vmIKARz132ec26NF0X8mxNKXA\",\n        \"accepted_currencies\": [\n            \"COP\"\n        ],\n        \"fraud_javascript_key\": null,\n        \"fraud_groups\": [],\n        \"accepted_payment_methods\": [\n            \"BANCOLOMBIA_TRANSFER\",\n            \"NEQUI\",\n            \"PSE\",\n            \"CARD\",\n            \"BANCOLOMBIA_COLLECT\"\n        ],\n        \"payment_methods\": [\n            {\n                \"name\": \"BANCOLOMBIA\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"BANCOLOMBIA_COLLECT\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_COLLECT_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"BANCOLOMBIA_TRANSFER\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_TRANSFER_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"CARD\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"CARD_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"NEQUI\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"NEQUI_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"PSE\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"PSE_SANDBOX\"\n                    }\n                ]\n            }\n        ],\n        \"presigned_acceptance\": {\n            \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE2NzA1MTExNjktMzgwOTUiLCJleHAiOjE2NzA1MTQ3Njl9.LEcEmfkByqOL3Hv1ym98OHET6u7IGgPan25IOcJnDdg\",\n            \"permalink\": \"https://wompi.co/wp-content/uploads/2019/09/TERMINOS-Y-CONDICIONES-DE-USO-USUARIOS-WOMPI.pdf\",\n            \"type\": \"END_USER_POLICY\"\n        }\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "temp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_local}}/driver/findAll",
+					"host": [
+						"{{url_local}}"
+					],
+					"path": [
+						"driver",
+						"findAll"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "temp",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_local}}/driver/findAll",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"driver",
+								"findAll"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"133-pOpI9E/flN95hVeoDgz+3vnYe9s\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Dec 2022 03:13:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"driver_id\": 1,\n        \"driver_name\": \"Driver 1\",\n        \"current_location\": \"{\\\"lat\\\":1,\\\"lng\\\":1}\",\n        \"on_a_ride\": false\n    },\n    {\n        \"driver_id\": 2,\n        \"driver_name\": \"Driver 2\",\n        \"current_location\": \"{\\\"lat\\\":2,\\\"lng\\\":2}\",\n        \"on_a_ride\": false\n    },\n    {\n        \"driver_id\": 3,\n        \"driver_name\": \"Driver 3\",\n        \"current_location\": \"{\\\"lat\\\":3,\\\"lng\\\":3}\",\n        \"on_a_ride\": false\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "rider",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rider_id\" : 1,\r\n    \"current_location\": {\r\n        \"lat\": 0,\r\n        \"lng\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_local}}/rider/RequestARide",
+					"host": [
+						"{{url_local}}"
+					],
+					"path": [
+						"rider",
+						"RequestARide"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "rider",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rider_id\" : 1,\r\n    \"current_location\": {\r\n        \"lat\": 0,\r\n        \"lng\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_local}}/rider/RequestARide",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"rider",
+								"RequestARide"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "151"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"97-xez6Ujp4vEO7ydHwprf84/QXawE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Dec 2022 03:19:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"created\",\n    \"ride_id\": 1,\n    \"assigned_driver\": {\n        \"driver_id\": 1,\n        \"driver_name\": \"Driver 1\",\n        \"current_location\": \"{\\\"lat\\\":1,\\\"lng\\\":1}\",\n        \"on_a_ride\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "driver",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"driver_id\" : 1,\r\n    \"final_location\": {\r\n        \"lat\": 2,\r\n        \"lng\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_local}}/driver/finishARide",
+					"host": [
+						"{{url_local}}"
+					],
+					"path": [
+						"driver",
+						"finishARide"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "driver",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"driver_id\" : 1,\r\n    \"final_location\": {\r\n        \"lat\": 2,\r\n        \"lng\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_local}}/driver/finishARide",
+							"host": [
+								"{{url_local}}"
+							],
+							"path": [
+								"driver",
+								"finishARide"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "668"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29c-ziFoh2yL6BPoTmfxWtK93J1X620\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Dec 2022 03:20:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"created\",\n    \"ride\": {\n        \"ride_id\": 1,\n        \"start_location\": \"{\\\"lat\\\":0,\\\"lng\\\":1}\",\n        \"end_location\": \"{\\\"lat\\\":2,\\\"lng\\\":2}\",\n        \"start_date\": \"2022-12-11T03:19:50.378Z\",\n        \"end_date\": \"2022-12-11T03:20:06.574Z\",\n        \"transaction_id\": \"130859-1670728807-71611\",\n        \"transaction_value\": 252129,\n        \"payment_source\": null,\n        \"rider\": {\n            \"rider_id\": 1,\n            \"rider_name\": \"Rider 1\",\n            \"email\": \"rider1@example.com\",\n            \"payment_source\": 45181,\n            \"token\": \"tok_test_30859_efBe912286fd9fF21a5a09bce2cb1991\"\n        },\n        \"driver\": {\n            \"driver_id\": 1,\n            \"driver_name\": \"Driver 1\",\n            \"current_location\": \"{\\\"lat\\\":1,\\\"lng\\\":1}\",\n            \"on_a_ride\": true\n        }\n    },\n    \"driver\": {\n        \"driver_id\": 1,\n        \"driver_name\": \"Driver 1\",\n        \"current_location\": \"{\\\"lat\\\":2,\\\"lng\\\":2}\",\n        \"on_a_ride\": false\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "sandbox-wompi",
+			"value": "https://sandbox.wompi.co/v1",
+			"type": "string"
+		},
+		{
+			"key": "url_local",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
